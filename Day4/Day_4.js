@@ -41,11 +41,36 @@
 // }while(num1<6)
 
 // Task 6:
+// let result = 1;
+// let factorialNum = 5
+
+// if (factorialNum < 0) {
+
+//     result = "Factorial of a negative number doesn't exist!."
+    
+// } else if(factorialNum === 0){
+//    result = 1; // 0! =1 , by definition
+// } else {
+//     do {
+//         result = result * factorialNum;
+//         factorialNum--;
+
+//     } while (factorialNum > 0);
+// }
+
+// console.log(result);
 
 
 // ### **Activity 4: Nested Loops**
 
 // Task 7:
+// for (let i = 0; i <= 5; i++) {
+//     let result = " ";
+//     for (let j = 0; j < i ; j++) {
+//         result += "*"
+//     }
+//     console.log(result);
+// }
 
 
 //### **Activity 5: Loop Control Statements**
@@ -61,12 +86,11 @@
 
 
 // Task 9:
-for(let num =1; num <= 10; num++){
-    if (num === 7) {
-        break;
-    }
-    else{
-        console.log(num);
-    }
-
-}
+// for(let num =1; num <= 10; num++){
+//     if (num === 7) {
+//         break;
+//     }
+//     else{
+//         console.log(num);
+//     }
+// }
