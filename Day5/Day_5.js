@@ -87,3 +87,37 @@
 // }
 
 // console.log(selfIntro("Raman"));
+
+
+// ### Activity 5: Higher-Order Functions
+
+// Task 9:
+// const greet = () => console.log("Hello bro!!"); // This function will work as parameter to higher order function
+
+// function repeatedFunc(fn, times) {
+//     for (let i = 1; i <= times; i++){
+//         fn();
+//     }
+// }
+
+// console.log("Calling repeatedFunc 4 times");
+// repeatedFunc(greet, 4);
+
+// console.log("Calling repeatedFunc 8 times");
+// repeatedFunc(greet, 8);
+
+
+
+// Task 10:
+const double = (x) => x * 2;
+const cube = (x) => x * x * x;
+
+function composeFunction(fn1, fn2, value) {
+    return (fn2(fn1(value)));
+}
+
+console.log("First double then cube ");
+console.log(composeFunction(double, cube, 3));
+
+console.log("First cube then double ");
+console.log(composeFunction(cube, double, 2));
