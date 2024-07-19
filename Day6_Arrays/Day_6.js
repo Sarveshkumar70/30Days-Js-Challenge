@@ -47,6 +47,23 @@ let myArray1 = [1, 2, 3, 4, 5];
 
 // ### Activity 3: Array Methods (Intermediate)
 
+// Task 7: 
+// let oldArray = [3,6,9,12,15]
+// let newArray = oldArray.map( (numbers) => numbers * 2 )
+// console.log(newArray);
+
+
+// Task 8
+
+
+
+// Task 9:
+// let array8 = [1,2,3,4,5,6,7,8,9,10]
+
+// let sumOfElements = array8.reduce( (acc, currentVal) =>  {
+//     return (acc + currentVal);
+// }, 0);
+// console.log(sumOfElements);
 
 
 // ### Activity 4: Array Iteration
@@ -58,3 +75,11 @@ let myArray1 = [1, 2, 3, 4, 5];
 //     console.log(myArray10[i]);
 // }
 
+
+// Task 11:
+
+let array11 = [10, 20, 30, 40, 50];
+
+array11.forEach(function(numbers){
+    console.log(numbers);
+})
