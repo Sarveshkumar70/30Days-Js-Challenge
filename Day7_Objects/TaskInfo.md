@@ -32,5 +32,3 @@ By the end of these activities, students will:
 - Understand and use the `this` keyword in object methods.
 - Work with nested objects and arrays of objects.
 - Iterate over an object’s properties using loops and built-in methods.
-
-Would you like to proceed with writing the solutions for these tasks?
