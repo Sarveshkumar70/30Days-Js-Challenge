@@ -64,8 +64,8 @@ function productFunc(val1 , val2 =1) {
     return val1*val2;   
 }
 
-console.log(productFunc(10,20)); // With both parameters
-console.log(productFunc(10)); // one parameter
+// console.log(productFunc(10,20)); // With both parameters
+// console.log(productFunc(10)); // one parameter
 
 // This demonstrates how the function works both when two arguments are provided and when only one is provided. In the second case, it uses the default value for the second parameter. In first case, default value gets overwritten by the second parameter
 
@@ -73,5 +73,42 @@ console.log(productFunc(10)); // one parameter
 
 // ### **Activity 5: Enhanced Object Literals**
 
+// Enhanced Object Literals include several improvements:
+// Shorthand property names
+// Shorthand method names
+// Computed property names
+
 // Task 8:
 
+let name = "Kurt Angle";
+let age = 19;
+
+const newObj = {
+    name, // its values will be equal to the values defined by variable names outside --> Shorthand property names
+    age,
+
+    printInfo (){   // Methods can be defined without the function keyword and colon. --> Shorthand method names
+        return `${this.name}'s age is ${this.age};`
+    }
+}
+
+// console.log(name + age + " \n");
+
+// console.log(newObj.name);
+// console.log(newObj.age);
+// console.log(newObj.printInfo());
+
+
+// Task 9:
+
+
+let The = 'Hero no.';
+let i =0;
+
+const obj2 = {
+    [The + ++i] : "HomeLander",  // Computed property names
+    [The + ++i] : "A-train",
+    [The + ++i] : "Deep"
+}
+
+console.log(obj2);
