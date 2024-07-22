@@ -15,4 +15,6 @@ myClass.style.backgroundColor = "lightgrey"
 
 // Task 3:
 const myDiv = document.createElement("div")
-console.log(myDivj);
+myDiv.textContent = "LIVE_YOUNG";
+
+document.body.appendChild(myDiv)
