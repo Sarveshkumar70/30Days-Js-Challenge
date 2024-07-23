@@ -10,7 +10,103 @@
     <h2 id="heading2">DOM Manipulation</h2>
     <p class="textBox1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex modi eveniet doloremque cum reiciendis, libero eos harum eum doloribus. Vitae.</p>
 
+    <ul id="ul1" >
+        <li>Paneer</li>
+        <li>Fruits</li>
+    </ul>
+
+    <!-- For Task 4 -->
+    <button onclick="addItem()">Click Here </button>
+
+
+    <!-- Task 5: -->
+     <p id="para1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, reiciendis.</p>
+
+    <!-- Task 6: -->
+     <div id="parent">
+        <div id="child1">child1</div>
+        <div id="child2">child2</div>
+        <div id="child3">child3</div>
+     </div>
+
+     <!-- Task 7: -->
+      <img id="img1" src="example.jpeg" alt="Mountains">
+
+
+
     <!-- JS -->
-     <script src="Day_9.js"></script>
+    <script>
+
+// ## **Activity 1: Selecting and Manipulating Elements**
+
+// Task 1:
+const myElement = document.getElementById('heading2')
+
+myElement.textContent = "This is 9th day of 30 days JS challenge"
+
+// Task 2:
+const myClass = document.querySelector('.textBox1')
+
+myClass.style.backgroundColor = "lightgrey"
+
+
+// ## **Activity 2: Creating and Appending Elements**
+
+// Task 3:
+const myDiv = document.createElement("div") // creating new element
+
+// adding text
+myDiv.textContent = "LIVE_YOUNG"
+
+// appending
+document.body.appendChild(myDiv)
+
+
+// Task 4:
+function addItem (){
+
+    const ul = document.getElementById("ul1") // grabbing the existing ul element by id
+    
+    const newLi = document.createElement("li")
+    
+    newLi.textContent = "Milk"
+    
+    ul.appendChild(newLi); // appending new li into ul
+}
+
+// ## **Activity 3: Removing Elements**
+
+// Task 5: 
+const removeElement1 = document.getElementById('para1'); // selecting that element
+removeElement1.remove(); // removing 
+
+// you can use removeChild() ,innerHTML and other methods
+
+
+// Task 6:
+const parentElement = document.getElementById("parent")
+// const lastChild = parentElement.lastElementChild;
+
+// if (lastChild) {
+//     lastChild.remove();
+// }
+
+// Other way
+if(parentElement.lastElementChild){
+    parentElement.removeChild(parentElement.lastElementChild);
+}
+
+
+// ## **Activity 4: Modifying Attributes and Classes**
+
+// **Task 7:**
+const getImg = document.querySelector("#img1")
+
+getImg.alt = "WaterFall";
+
+
+
+
+     </script>
 </body>
 </html>
