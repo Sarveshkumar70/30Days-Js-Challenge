@@ -32,6 +32,8 @@
      <!-- Task 7: -->
       <img id="img1" src="example.jpeg" alt="Mountains">
 
+      <!-- Task 8: -->
+
 
 
     <!-- JS -->
@@ -103,6 +105,46 @@ if(parentElement.lastElementChild){
 const getImg = document.querySelector("#img1")
 
 getImg.alt = "WaterFall";
+
+
+// Task 8:
+
+// ADDING
+
+        // const userClass = "userClass";
+        //  defining class name as string or use direct in classList
+
+        // Create a new paragraph element
+        let userPara = document.createElement("p");
+
+        // Adding new class
+        userPara.classList.add("userClass"); // use class name as string
+
+        // Custom CSS
+        userPara.style.backgroundColor = "blue";
+
+        // Adding text
+        userPara.textContent = "Hello world!";
+
+        // Append the new paragraph to the body
+        document.body.appendChild(userPara);
+
+
+        // REMOVING
+        setTimeout(() => {
+
+            // use remove for removal of class
+            userPara.classList.remove("userClass");
+
+            console.log("Sucessfully removed");
+            
+        }, 3000);
+
+
+// ## **Activity 5: Event Handling**
+
+// Task 9:
+
 
 
 
