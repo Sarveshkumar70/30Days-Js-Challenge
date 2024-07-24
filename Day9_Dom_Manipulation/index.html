@@ -32,7 +32,20 @@
      <!-- Task 7: -->
       <img id="img1" src="example.jpeg" alt="Mountains">
 
-      <!-- Task 8: -->
+
+
+    <!-- Task 9: -->
+
+    <p id="task9para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, distinctio.
+    </p>
+
+    <button id="changeText">Click for change </button>
+
+    <!-- Task 10: -->
+
+    <button id="task10button">Submit</button>
+
 
 
 
@@ -144,6 +157,37 @@ getImg.alt = "WaterFall";
 // ## **Activity 5: Event Handling**
 
 // Task 9:
+
+document.getElementById("changeText").
+addEventListener('click',() => {
+    const changetextContent = document.getElementById("task9para");
+
+    changetextContent.textContent = "The text content is changed";
+}, false)
+
+
+// Task 10:
+
+// DOMContentLoaded is an event that fires when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. This event is crucial for ensuring that your JavaScript code interacts with a fully constructed Document Object Model (DOM).
+
+// use load event for image,style related scenarios
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const task10button = document.getElementById("task10button")
+    
+    task10button.addEventListener('mouseover', ()=>{
+        task10button.style.borderColor = "red";
+    })
+    
+    task10button.addEventListener('mouseout', ()=>{
+        task10button.style.borderColor = "#333";
+    })
+    
+})
+
+
+
 
 
 
