@@ -1,40 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Handling</title>
-</head>
 
-<body>
+    <style>
+  
+      #imgContainer  img{
+        width: 300px;
+        height: 300px;
+      }
 
+      #box{
+        width: 30%;
+        height: 50px;
+        background-color: aqua;
+        display: flex;
+        justify-content: center;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Task 1 -->
+    <div>
+      <p id="task1Para">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+        laboriosam repudiandae deserunt!
+      </p>
+
+      <button id="task1Button">Change text</button>
+    </div>
+
+    <br>
 
     <!-- Task 2 -->
 
-    <img id="lionPic" src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Lion image">
+    <div id="imgContainer">
+      <img
+      id="lionPic"
+      src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt="Lion image"
+      />
+    </div>
+
+
+    <!-- Task 3: -->
+     <div id="box">
+      <p>Hello</p>
+
+     </div>
 
 
     <!-- JS -->
     <script>
-        // ### Activity 1: Basic Event Handling
+      // ### Activity 1: Basic Event Handling
 
-        // Task 1:
+      // Task 1:
+      // selecting elements
+      const task1Para = document.getElementById("task1Para");
+      const task1Button = document.getElementById("task1Button");
 
-        // Task 2:
-        const lionPic = document.getElementById("lionPic")
+      // preserving old text content
+      let oldText = task1Para.textContent;
+
+      // sets new text after clicking button
+      task1Button.addEventListener("click", () => {
+        task1Para.textContent = "One piece is one of the longest running anime";
+
+        // after 5secs new text gets replaced by old text
+        setTimeout(() => {
+          task1Para.textContent = oldText;
+          console.log("setTimeout is executed");
+        }, 5000);
+      });
 
 
-        lionPic.addEventListener('dblclick', ()=>{
+      // Task 2:
 
-            if (lionPic.style.visibility == "visible") {  
-                lionPic.style.visibility = "hidden"
-            }
-            else{
-                lionPic.style.visibility = "visible"
-            }
+      // limitation : the image cannot reappeared by clicking
+      const task2Img = document.getElementById("lionPic")
+      let isVisible = true;
+
+      task2Img.addEventListener('dblclick', () => {
+        isVisible = !isVisible
+
+        task2Img.style.visibility = (isVisible) ? "visible" : "hidden";
+      });
+
+
+      // ### Activity 2: Mouse Events
+
+      // Task 3:
+      // selecting element
+      const box = document.getElementById("box")
+
+      // preserving old color
+      const oldBgColor = box.style.backgroundColor;
+
+      box.addEventListener('mouseover', ()=>{
+        box.style.backgroundColor = "pink";
+      })
+
+
+        // Task 4:
+        box.addEventListener( "mouseout", () => {
+          box.style.backgroundColor = oldBgColor;
         })
 
-    </script>
+
+        // ### Activity 3: Keyboard Events
+
+        // Task 5:
+        
+
+
+
     
-</body>
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
 </html>
