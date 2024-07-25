@@ -6,13 +6,12 @@
     <title>Event Handling</title>
 
     <style>
-  
-      #imgContainer  img{
+      #imgContainer img {
         width: 300px;
         height: 300px;
       }
 
-      #box{
+      #box {
         width: 30%;
         height: 50px;
         background-color: aqua;
@@ -20,6 +19,23 @@
         justify-content: center;
       }
 
+      #display {
+            background-color: #e9e9e9;
+            padding: 10px;
+            border-radius: 4px;
+            min-height: 20px;
+        }
+
+        #formContainer{
+          border: 2px solid black;
+          padding: 10px;
+          width: 40%;
+        }
+
+        #form{
+          width: 50%;
+          margin: 10px;      
+        }
     </style>
   </head>
 
@@ -34,106 +50,165 @@
       <button id="task1Button">Change text</button>
     </div>
 
-    <br>
+    <br />
 
     <!-- Task 2 -->
 
     <div id="imgContainer">
       <img
-      id="lionPic"
-      src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      alt="Lion image"
+        id="lionPic"
+        src="https://images.pexels.com/photos/33045/lion-wild-africa-african.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt="Lion image"
       />
     </div>
 
-
     <!-- Task 3: -->
-     <div id="box">
+    <div id="box">
       <p>Hello</p>
+    </div>
+    <br />
 
-     </div>
+    <!-- Task 5: -->
+    <div>
+      <span>Enter any key for keydown:</span>
+      <input type="text" id="takeInput" placeholder="Type something..." />
+    </div>
 
+    <br>
+
+    <!-- Task 6: -->
+    <div>
+      <span>Enter any key for keyup:</span>
+      <input type="text" id="keyupTask6" />
+      <p> You typed : 
+        <span id="display"> </span>
+      </p>
+    </div>
+
+<br> <br>
+
+
+    <!-- Task 7: -->
+    <div id="formContainer">
+      <form action="" id="form" >
+      
+        <label for="text">Name:</label>
+          <input type="text" id="nameText" required>
+        
+        <br>  <br>
+        
+        <label for="email">Email:</label>
+          <input type="email" id="emailText" required>
+
+          <button id="submit">
+            Submit
+          </button>
+        
+        
+      </form>
+    </div>
 
     <!-- JS -->
     <script>
-      // ### Activity 1: Basic Event Handling
+            // ### Activity 1: Basic Event Handling
 
-      // Task 1:
-      // selecting elements
-      const task1Para = document.getElementById("task1Para");
-      const task1Button = document.getElementById("task1Button");
+            // Task 1:
+            // selecting elements
+            const task1Para = document.getElementById("task1Para");
+            const task1Button = document.getElementById("task1Button");
 
-      // preserving old text content
-      let oldText = task1Para.textContent;
+            // preserving old text content
+            let oldText = task1Para.textContent;
 
-      // sets new text after clicking button
-      task1Button.addEventListener("click", () => {
-        task1Para.textContent = "One piece is one of the longest running anime";
+            // sets new text after clicking button
+            task1Button.addEventListener("click", () => {
+              task1Para.textContent = "One piece is one of the longest running anime";
 
-        // after 5secs new text gets replaced by old text
-        setTimeout(() => {
-          task1Para.textContent = oldText;
-          console.log("setTimeout is executed");
-        }, 5000);
-      });
-
-
-      // Task 2:
-
-      // limitation : the image cannot reappeared by clicking
-      const task2Img = document.getElementById("lionPic")
-      let isVisible = true;
-
-      task2Img.addEventListener('dblclick', () => {
-        isVisible = !isVisible
-
-        task2Img.style.visibility = (isVisible) ? "visible" : "hidden";
-      });
+              // after 5secs new text gets replaced by old text
+              setTimeout(() => {
+                task1Para.textContent = oldText;
+                console.log("setTimeout is executed");
+              }, 5000);
+            });
 
 
-      // ### Activity 2: Mouse Events
+            // Task 2:
 
-      // Task 3:
-      // selecting element
-      const box = document.getElementById("box")
+            // limitation : the image cannot reappeared by clicking
+            const task2Img = document.getElementById("lionPic")
+            let isVisible = true;
 
-      // preserving old color
-      const oldBgColor = box.style.backgroundColor;
+            task2Img.addEventListener('dblclick', () => {
+              isVisible = !isVisible
 
-      box.addEventListener('mouseover', ()=>{
-        box.style.backgroundColor = "pink";
-      })
-
-
-        // Task 4:
-        box.addEventListener( "mouseout", () => {
-          box.style.backgroundColor = oldBgColor;
-        })
+              task2Img.style.visibility = (isVisible) ? "visible" : "hidden";
+            });
 
 
-        // ### Activity 3: Keyboard Events
+            // ### Activity 2: Mouse Events
 
-        // Task 5:
-        
+            // Task 3:
+            // selecting element
+            const box = document.getElementById("box")
 
+            // preserving old color
+            const oldBgColor = box.style.backgroundColor;
 
-
-    
-
-
-
-      
-
-
+            box.addEventListener('mouseover', ()=>{
+              box.style.backgroundColor = "pink";
+            })
 
 
+              // Task 4:
+              box.addEventListener( "mouseout", () => {
+                box.style.backgroundColor = oldBgColor;
+              })
 
 
+              // ### Activity 3: Keyboard Events
+
+               //keydown: Fires when a key is first pressed down.
+              //  might not reflect the correct case (uppercase/lowercase) if Shift is involved.
 
 
+               // keyup: Fires when a key is released, provides more accurate key values
+
+              // Task 5:
+              const takeInput = document.getElementById("takeInput")
+
+              takeInput.addEventListener("keydown", (e)=>{
+                console.log(`The key: ${e.key} and the key code is: ${e.keyCode}` );
+              })
 
 
+              // Task 6:
+              const keyupTask6 = document.getElementById("keyupTask6")
 
+              const display = document.getElementById("display")
+
+              keyupTask6.addEventListener('keyup',(e)=>{
+                display.textContent = e.target.value
+              })
+
+
+              // ### Activity 4: Form Events
+
+              // Task 7:
+              const form = document.getElementById("form")
+
+              form.addEventListener('submit',(e) => {
+
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                const formObject = {};
+                formData.forEach((value,key) => {
+                  formObject[key] = value;
+                });
+                
+                console.log(formObject);
+              })
 
 
     </script>
