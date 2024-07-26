@@ -14,13 +14,12 @@
 //     console.log("Promise 1 consumed");
 // })
 
-
 // Task 2:
 // const promiseTwo = new Promise(function (resolve,reject) {
 //     let theErrorIs = true;
 
 //     if (!theErrorIs) {
-//         resolve({user : "Shaktimaan" , Passion : "Protecting people"})  
+//         resolve({user : "Shaktimaan" , Passion : "Protecting people"})
 //     } else{
 //         reject("You got an error");
 //     }
@@ -39,55 +38,111 @@
 //     },2000)
 // })
 
-
 // ### **Activity 2: Chaining Promises**
 
 // Task 3:
 
-function fetchUserData() {
+// function fetchUserData() {
 
-    return new Promise(resolve =>{
-        setTimeout(() => {
-            resolve({is : 1,name: "John" });
-        }, 1000);   
-    });
-}
+//     return new Promise(resolve =>{
+//         setTimeout(() => {
+//             resolve({id : 1,name: "John" });
+//         }, 1000);
+//     });
+// }
 
-function fetchUserPosts(userId) {
+// function fetchUserPosts(userId) {
 
-    return new Promise(resolve =>{
-        setTimeout(() => {
-            resolve(['Post1','Post2','Post3']);
-        }, 1500);   
-    });
-}
+//     return new Promise(resolve =>{
+//         setTimeout(() => {
+//             resolve(['Post1','Post2','Post3']);
+//         }, 1500);
+//     });
+// }
 
-function fetchUserComments(postId) {
+// function fetchUserComments(postId) {
 
-    return new Promise(resolve =>{
-        setTimeout(() => {
-            resolve(['comment1', 'comment2']);
-        }, 1000);   
-    });
-}
+//     return new Promise(resolve =>{
+//         setTimeout(() => {
+//             resolve(['comment1', 'comment2']);
+//         }, 1000);
+//     });
+// }
 
-console.log('starting data fetch');
+// console.log('starting data fetch');
 
-fetchUserData().
-then((user)=>{
-    console.log('Fetched user: ',user.name );
-    return fetchUserPosts(user.id);
-})
-.then((posts)=>{
-    console.log(`Fetched posts`, posts.length )
-    return fetchUserComments(posts[0]);
-})
-.then((comments)=>{
-    console.log(`fetched comments`, comments.length);
-    console.log("All data fetched correctly");
-})
-.catch(()=>{
-    console.log("An error occurred",error);
-})
+// fetchUserData().
+// then((user)=>{
+//     console.log('Fetched user: ',user.name );
+//     return fetchUserPosts(user.id);
+// })
+// .then((posts)=>{
+//     console.log(`Fetched posts`, posts.length )
+//     return fetchUserComments(posts[0]);
+// })
+// .then((comments)=>{
+//     console.log(`fetched comments`, comments.length);
+//     console.log("All data fetched correctly");
+// })
+// .catch(()=>{
+//     console.log("An error occurred",error);
+// })
 
-console.log('Data fetched initiated, waiting for results.....');
+// console.log('Data fetched initiated, waiting for results.....');
+
+// ### **Activity 3: Using Async/Await**
+
+// Task 4:
+// function asyncPara(value, delay) {
+
+//     return new Promise(resolve => {
+//         setTimeout(() => resolve(value) , delay);
+//     })
+// }
+
+// async function waitAndLog(promise) {
+//     console.log("Starting to wait......");
+
+//     try {
+//         const result = await promise
+//         console.log("The resolved value: ",result);
+
+//     } catch (error) {
+//         console.log("An error has occurred: ", error);
+//     }
+//     console.log("Operation completed");
+// }
+
+// console.log("Program started :");
+
+// waitAndLog(asyncPara("Hello, async/wait",2000));
+
+// console.log("Program continues...");
+
+// Task 5:
+// function asynReject(value, delay) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       reject(new  Error(value));
+//     }, delay);
+//   });
+// }
+
+// async function waitAndLogWithErrorHandling(promise) {
+//   console.log("Starting to wait......");
+
+//   try {
+//     const result = await promise
+//     console.log("The resolved value is", result);
+    
+//   } catch (error) {
+//     console.log("Error occurred", error.message);
+// }
+// console.log("Progarm ended");
+// }
+
+// console.log("Starting..");
+
+// waitAndLogWithErrorHandling(asynReject("Hello, async/await error!",2000));
+
+// console.log("Program continues");
