@@ -71,3 +71,46 @@
 // **Activity 3: Custom Error Objects**
 
 // Task 4:
+
+// custom error class
+// class InvalidAgeError extends Error{
+//     constructor(message){
+//         super(message);
+//         this.name = "InvalidAgeError";
+//     }
+// }
+
+// function to validate age
+// function validateAge(age) {
+//     if (typeof (age) !== 'number' || age < 0 || age > 120)  {
+//         throw new InvalidAgeError("Invalid age: age must be number between 0 and 120");
+//     }
+//     return `Age ${age} is valid`;
+// }
+
+// function with try catch block
+// function checkAge(ageToCheck) {
+//     try {
+//         const result = validateAge(ageToCheck) ;
+//         console.log(result);
+//     } catch (error) {
+//         if (error instanceof InvalidAgeError ) {
+//             console.error(`Caught an InvalidAgeError: ${error.message}`);
+//         }
+//         else{
+//             console.error("Unexpected error : ", error.message);
+//         }
+//     }
+// }
+
+// console.log("Testing with valid age:");
+// checkAge(16);
+
+// console.log("Testing with Unvalid age:");
+// checkAge(216);
+
+// console.log("Testing with non number input:");
+// checkAge("lol");
+
+
+// Task 5:
