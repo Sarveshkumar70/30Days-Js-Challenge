@@ -14,6 +14,8 @@
 //     console.log("Promise 1 consumed");
 // })
 
+
+
 // Task 2:
 // const promiseTwo = new Promise(function (resolve,reject) {
 //     let theErrorIs = true;
@@ -38,10 +40,11 @@
 //     },2000)
 // })
 
+
+
 // ### **Activity 2: Chaining Promises**
 
 // Task 3:
-
 // function fetchUserData() {
 
 //     return new Promise(resolve =>{
@@ -90,6 +93,8 @@
 
 // console.log('Data fetched initiated, waiting for results.....');
 
+
+
 // ### **Activity 3: Using Async/Await**
 
 // Task 4:
@@ -119,6 +124,8 @@
 
 // console.log("Program continues...");
 
+
+
 // Task 5:
 // function asynReject(value, delay) {
 //   return new Promise((resolve, reject) => {
@@ -146,3 +153,99 @@
 // waitAndLogWithErrorHandling(asynReject("Hello, async/await error!",2000));
 
 // console.log("Program continues");
+
+
+// ### **Activity 4: Fetching Data from an API**
+
+
+
+// Task 6:
+// function getDataByPromise() {
+//     const url = "https://randomuser.me/api/";
+
+//     fetch(url)
+//     .then( response =>{
+//         if (!response.ok) {
+//             throw new Error("HTTP error! status:", response.status)
+//         }
+//         return response.json();
+//     })
+//     .then(data => {
+//         console.log("API response:", data);
+//     })
+//     .catch(error =>{
+//         console.log("There was a problem with fetch operation:", error);
+//     });
+// }
+
+// // call the function
+// console.log("starting fetch data...");
+// getDataByPromise();
+// console.log("Data fetch initiated.");
+
+
+
+// **Task 7**:
+// async function getData() {
+//     const url = "https://randomuser.me/api/";
+
+//     try {
+//         const response = await fetch(url);
+//         if (!response.ok) {
+//             throw new Error(`Response status: ${response.status}`);
+//         }
+
+//         const json = await response.json();
+//         console.log(json);
+//     } catch (error) {
+//         console.error(error.message);
+//         throw error;
+//     }   
+// }
+
+// getData()
+// .then(data => console.log(data))
+// .catch(error => console.error("Error in main: ", error));
+
+
+// ### **Activity 5: Concurrent Promises**
+
+// Task 8:
+// const promise1 = Promise.resolve(100);
+// const promise2 = 1337;
+// const problem3 = new Promise((resolve, reject) =>{
+//     setTimeout(() => {
+//         resolve("foo")
+//     }, 1000);
+// })
+
+// Promise.all([promise1,promise2,problem3]).then(values =>{
+//     console.log(values);
+// })
+
+
+// Task 9:
+const promiseFirst = new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve("promiseFirst")
+    }, 700);
+} ) 
+
+const promiseSecond = new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve("promiseSecond")
+    }, 120);
+} ) 
+
+const promiseThird = new Promise((resolve, reject) =>{
+    setTimeout(() => {
+        resolve("promiseThird")
+    }, 100);
+} ) 
+
+Promise.race([promiseFirst,promiseSecond,promiseThird]).then(value =>{
+    console.log(value);
+})
+.catch(error => {
+    console.log("An error has occurred: ",error);
+})
