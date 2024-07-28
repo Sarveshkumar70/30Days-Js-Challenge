@@ -1,3 +1,10 @@
+// NOTE --------------------------------------------------
+// In JavaScript, promises are executed immediately upon creation. If a promise is created outside of a loop and used within the loop, it will not generate new outcomes on each iteration but will reuse the result of the initial creation. To generate a new outcome on each iteration, create the promise inside the loop.
+// Note for Future Use:
+
+// When using promises within a loop, ensure to create the promise inside the loop to guarantee a new outcome for each iteration.
+
+
 // *### *Activity 1: Understanding Promises**
 
 // Task 1:
