@@ -34,6 +34,9 @@
 //     console.error(error.message);
 // }
 
+
+
+
 // **Activity 2: Finally Block**
 
 // Task 3:
@@ -61,6 +64,8 @@
 // } finally{
 //     console.log("Exection flow is in finally block");
 // }
+
+
 
 // **Activity 3: Custom Error Objects**
 
@@ -164,29 +169,29 @@ function takeInput(input) {
 // Task 6:
 
 // fn. which generates random number
-const randomNum = (min, max) => Math.floor( Math.random() * (max - min + 1)) + min;
+// const randomNum = (min, max) => Math.floor( Math.random() * (max - min + 1)) + min;
 
-// randomly resolves or rejects promise
-const randomPromise = new Promise((resolve, reject) => {
-    const random = randomNum(1,2);
+// // randomly resolves or rejects promise
+// const randomPromise = new Promise((resolve, reject) => {
+//     const random = randomNum(1,2);
 
-    if (random === 1) {
-        resolve("Success! The random number is 1")
-    }else{
-        reject(new Error("Failed! The random number is 2"));
-    }
-}) ;
+//     if (random === 1) {
+//         resolve("Success! The random number is 1")
+//     }else{
+//         reject(new Error("Failed! The random number is 2"));
+//     }
+// }) ;
 
 
-randomPromise.then((result) =>{
-    console.log("Promise resolved, ",result);
-})
-.catch((error)=>{
-    console.log("Promise rejectd ,",error.message );
-})
-.finally( () =>{
-    console.log("Promise settled : either resolved or rejected");
-})
+// randomPromise.then((result) =>{
+//     console.log("Promise resolved, ",result);
+// })
+// .catch((error)=>{
+//     console.log("Promise rejectd ,",error.message );
+// })
+// .finally( () =>{
+//     console.log("Promise settled : either resolved or rejected");
+// })
 
 // In JavaScript, promises are executed immediately upon creation. If a promise is created outside of a loop and used within the loop, it will not generate new outcomes on each iteration but will reuse the result of the initial creation. To generate a new outcome on each iteration, create the promise inside the loop.
 
@@ -220,6 +225,76 @@ randomPromise.then((result) =>{
 // }
 
 
+// Task 7:
+
+// randomly resolving or rejecting Promise 
+// function randomPromise2() {
+//  return new Promise((resolve,reject) =>{
+//   setTimeout(() => {
+//     if (Math.random() > 0.5) {
+//       resolve("Success!")
+//     }else{
+//       reject(new Error("Failure"));
+//     }
+//   }, 1000);
+//  }) 
+// }
+
+// Handling Promise by try catch block by async Fn.
+// async function handleRandomPromise2(){
+//   try {
+//     const result = await randomPromise2()
+//     console.log("Promise resolved:",result);
+//   } catch (error) {
+//     console.log("Promise rejected:", error.message);
+//   } finally{
+//     console.log("Finally, Promise is either resolvd or rejected");
+//   }
+// }
+
+// calling fn.
+// handleRandomPromise2()
 
 
+// **Activity 5: Graceful Error Handling in Fetch**
 
+// Task 8:
+
+// const invalidUrl = "www.exmpla/domain..com";
+
+// fetch(invalidUrl)
+// .then( response => {
+//   if (!response.ok) {
+//     throw new Error(`HTTP error!  status : ${response.status}`);
+//   }
+//   return response.json();
+// })
+// .then( data => {
+//   console.log(`Data received:`,data);
+// })
+// .catch((error) => {
+//   console.log(`fetch error:`, error.message);
+// })
+
+
+// Task 9:
+async function getData2() {
+  const url = "hdhhfhfh.com";
+
+  try {
+    const urlResponse = await fetch(url);
+    
+    if (!urlResponse.ok) {
+      throw new Error(`HTTP request error: 
+        ${urlResponse.status}`)
+    }
+
+    const data = await urlResponse.json();
+    console.log("Data received,",data);
+  } catch (error) {
+    console.error("Error message,",error.message) 
+  }
+}
+
+// calling fn.
+getData2();
