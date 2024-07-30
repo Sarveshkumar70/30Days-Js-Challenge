@@ -132,4 +132,103 @@
 
 
 
+// **Activity 4: Recursive Search**
 
+// Task 7:
+// function binarySearch(arr,element,start = 0, end = arr.length-1) {
+
+//    if (start > end) {
+//       return -1;
+//    }
+
+//    const mid = Math.floor((start+end)/2);
+
+//    if (arr[mid] === element) {
+//       return mid;
+//    }
+//    else if (arr[mid] < element) {
+//       return binarySearch(arr,element,mid+1,end);
+//    }
+
+//    return binarySearch(arr,element, start,mid-1);
+// }
+
+// const arr2 = [10,20,30,40,50,60,70]
+
+// const targetElement = 30;
+// console.log(`The element ${targetElement} is in index ${binarySearch(arr2,targetElement)}`);
+
+
+
+// Task 8:
+
+// function checkOccurences(arr,element,index = 0) {
+//    if (index === arr.length) {
+//       return 0;
+//    }
+//    else if (arr[index]  === element) {
+//       return 1 + checkOccurences(arr, element, index+1); 
+//    }
+
+//    return checkOccurences(arr,element,index+1);
+// }
+
+// const arr3 = [10,20,30,40,20,20,50,20]
+// const elementNum = 20
+// console.log(`The total occurrences of elemet ${elementNum} in array  is ${checkOccurences(arr3,elementNum)} `);
+
+
+
+
+// **Activity 5: Tree Traversal **
+
+// Task 9:
+// class treeNode {
+//     constructor(value){
+//        this.value = value;
+//        this.left = null;
+//        this.right = null;
+//     }
+//  }
+ 
+//  // recursive function for in-order Traversal
+//  function inOrderTraversal(node) {
+ 
+//     // base condition : if the node is null, return
+//     if (node === null) {
+//        return;
+//     }
+ 
+//     // recursively traverse left subtree
+//     inOrderTraversal(node.left);
+    
+//     console.log(node.value);
+ 
+//     // recursively traverse right subtree
+//     inOrderTraversal(node.right)
+//  }
+ 
+ 
+//     //        1
+//     //     /     \
+//     //    2       3 
+//     //  /   \    /  \
+//     // 4     5  6    7  
+   
+//  const root = new treeNode(1); 
+ 
+//  root.left = new treeNode(2)
+//  root.right = new treeNode(3)
+ 
+//  root.left.left = new treeNode(4)
+//  root.left.right = new treeNode(5)
+ 
+//  root.right.left = new treeNode(6)
+//  root.right.right = new treeNode(7)
+ 
+//  console.log("In-order Traversal:");
+//  inOrderTraversal(root);
+
+
+
+// Task 10:
