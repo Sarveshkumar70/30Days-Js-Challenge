@@ -232,3 +232,63 @@
 
 
 // Task 10:
+class treeNode {
+    constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+    }
+  }
+  
+  // fn. to get depth of tree
+  function checkDepth(root) {
+    if (root === null) {
+      return 0;
+    }
+  
+    const leftDepth = checkDepth(root.left);
+    const rightDepth = checkDepth(root.right);
+  
+    return Math.max(leftDepth, rightDepth) + 1;
+  }
+  
+  
+  // test cases:
+  function testCase1() {
+    const root = new treeNode(1);
+  
+    root.left = new treeNode(2);
+    root.right = new treeNode(3);
+  
+    root.left.left = new treeNode(4);
+    root.left.right = new treeNode(5);
+  
+    root.right.left = new treeNode(6);
+    root.right.right = new treeNode(7);
+  
+    return root;
+  }
+  
+  
+  function testCase2() {
+    const root = new treeNode(1);
+  
+    root.left = new treeNode(2);
+    root.right = new treeNode(3);
+  
+    root.left.left = new treeNode(4);
+    root.left.left.left = new treeNode(5);
+  
+    return root;
+  }
+  
+  const testtree1 = testCase1();
+  const testtree2 = testCase2();
+  const emptytree = null;
+  
+  
+  console.log(`The depth of testtree1: ${checkDepth(testtree1)}`);
+  console.log(`The depth of testtree2: ${checkDepth(testtree2)}`);
+  console.log(`The depth of emptytree: ${checkDepth(emptytree)}`);
+  
+  
