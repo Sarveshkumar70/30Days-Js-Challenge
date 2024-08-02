@@ -165,29 +165,97 @@ Student.trackProperty(); // 4, first is called by instance studentInstance
 // -------------------------------------------------------------
 
 // Task 7 & 8
-class Person3 {
-  constructor(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+// class Person3 {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//   }
+
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+
+//   set fullName(newFullName) {
+//     const [firstName, lastName] = newFullName.split(" ");
+//     this.firstName = firstName || this.firstName;
+//     this.lastName = lastName || this.lastName; //  keep old if split fails
+//   }
+// }
+
+// // creating instance of class
+// const personInstance = new Person3("Harry", "Singh");
+
+// // logging the full name using the getter.
+// console.log(personInstance.fullName);
+
+// personInstance.fullName = "Baba ramu"
+
+// console.log(personInstance.fullName);
+
+
+
+// ### Activity 5: Private Fields
+
+// Task 9 & 10:
+class Account {
+  #balance; // Private field for balance  
+
+  constructor(balance){
+    this.#balance = balance;
   }
 
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
-  }
+    // method to deposit money
+    deposit(amount) {
+      if (amount > 0) {
+        this.#balance += amount;
+      }
+      else{
+        console.log("Amount must be positive for deposit");
+      }
+    };
 
-  set fullName(newFullName) {
-    const [firstName, lastName] = newFullName.split(" ");
-    this.firstName = firstName || this.firstName;
-    this.lastName = lastName || this.lastName; //  keep old if split fails
-  }
+    // Method to withdraw money from account
+    withDraw (amount)
+    {
+      if (amount >0 && amount <= this.#balance) {
+        this.#balance -= amount; 
+        console.log(`Withdraw amount ${amount} & remaining balance ${this.#balance}`);
+      }
+
+      else if(amount > this.#balance){
+        console.log("Unsufficient balance");
+      }
+
+      else{
+        console.log("Enter positive amount only");
+      }
+    }
+
+    // Method for checking balance in account
+    getBalance(){
+      console.log(`The remaining balance is: ${this.#balance}`);
+    }
 }
 
-// creating instance of class
-const personInstance = new Person3("Harry", "Singh");
+console.log("\n");
 
-// logging the full name using the getter.
-console.log(personInstance.fullName);
+  const bank1 = new Account(45);
 
-personInstance.fullName = "Baba ramu"
+  bank1.deposit(20);
 
-console.log(personInstance.fullName);
+  // case 1: proper withdrawal of money
+  // bank1.withDraw(45) // Withdraw amount 45 & remaining balance 20
+  //  bank1.getBalance()
+
+  // case 2:Unsufficient balance
+  //  bank1.withDraw(100) // Unsufficient balance
+  //  bank1.getBalance() //The remaining balance is: 65
+
+  // case :3
+  // bank1.withDraw(-1) // Enter positive amount only
+  // bank1.getBalance() //The remaining balance is: 65
+
+
+//  to check balance in account
+//   bank1.getBalance()
+
