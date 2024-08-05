@@ -78,28 +78,47 @@ class LinkedList {
 
 const list = new LinkedList();
 
-list.add(1);
-list.add(2);
-list.add(3);
-list.add(4);
+// list.add(1);
+// list.add(2);
+// list.add(3);
+// list.add(4);
 
-list.display(); // 1 -> 2 -> 3 -> 4
+// list.display(); // 1 -> 2 -> 3 -> 4
 
-console.log(list.remove()); // 4
-list.display(); // 1 -> 2 -> 3
+// console.log(list.remove()); // 4
+// list.display(); // 1 -> 2 -> 3
 
-console.log(list.remove()); // 3
-list.display(); // 1 -> 2 
+// console.log(list.remove()); // 3
+// list.display(); // 1 -> 2 
 
-console.log(list.remove()); // 2
-list.display(); // 1 
+// console.log(list.remove()); // 2
+// list.display(); // 1 
 
-console.log(list.remove()); // 1
-list.display(); 
-
-
+// console.log(list.remove()); // 1
+// list.display(); 
 
 
 
+// ### **Activity 2: Stack**
+
+// Task 3:
+class Stack{
+    #items;
+
+    constructor(){
+        this.#items = [];
+    }
+
+    // Methods'
+
+    // push (add element)
+    pushElement(element){
+        if ( ) {
+            
+        }
+
+
+    }
+}
 
 
