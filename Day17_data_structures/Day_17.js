@@ -109,16 +109,194 @@ class Stack{
         this.#items = [];
     }
 
-    // Methods'
+    // Methods
+    
+    // returns true if stack is empty
+    isEmpty(){
+        return (this.#items.length === 0) 
+    }
 
     // push (add element)
-    pushElement(element){
-        if ( ) {
-            
+    push(element){
+        this.#items.push(element)
+        return this.#items.length; // returns length of stack 
+    }
+    
+    // pop(element)
+    pop(){
+        if (this.isEmpty()) {
+            return "Stack is empty"
+        }
+        return this.#items.pop() // pops element
+    }
+
+    // checks top element of stack
+    peek(){
+        if (this.isEmpty()) {
+            return "No element in Stack"
         }
 
+        return this.#items[this.#items.length-1]
+    }
 
+
+    // check size of stack
+    sizeOfStack(){
+        return this.#items.length
+    }
+
+    // clear all previous elements
+    clearStack(){
+        this.#items = []
+    }
+
+    print(){
+        console.log(this.#items.toString());
+    }
+    
+}
+
+// const stackVar1 = new Stack()
+
+// // size of stack
+// console.log(stackVar1.sizeOfStack()); // 0
+
+// // Pushing elements into stack
+// console.log(stackVar1.push(10)); // 1
+// console.log(stackVar1.push(20)); // 2
+// console.log(stackVar1.push(25)); // 3
+// console.log(stackVar1.push(30)); // 4
+// console.log(stackVar1.push(40)); // 5
+
+// // Popping elements
+// console.log(stackVar1.pop()); // 40
+// console.log(stackVar1.pop()); // 30
+
+// // Peeking top element
+// console.log(stackVar1.peek()); // 25
+
+// // Logs this string representation of the stack's contents to the console
+// stackVar1.print() // 10, 20 ,25
+
+
+// // stack refreshed
+// stackVar1.clearStack();
+
+// console.log(stackVar1.pop()); // Stack is empty
+
+// console.log(stackVar1.isEmpty()); // true
+
+// console.log(stackVar1.sizeOfStack()); // 0
+
+
+// Task 4:
+function reverseStringFn(str) {
+    const stackVar2 = new Stack();
+
+    let reverseString = '';
+
+    // push our string into stack
+    for (let character of str) {
+        stackVar2.push(character)
+    }
+
+    // Empty string
+    while (!stackVar2.isEmpty()) {
+        reverseString += stackVar2.pop()
+    }
+
+    return reverseString;
+}
+
+const originalString = "Hello, World!";
+console.log("Original :", originalString);
+console.log("Reversed :", reverseStringFn(originalString));
+
+
+
+// ### **Activity 3: Queue**
+
+// Task 5:
+class Queue{
+
+    #items;
+
+    constructor() {
+        this.#items = []
+    }
+
+    enqueue(element){
+        this.#items.push(element);
+    }
+
+    dequeue(){
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.#items.shift(); // pops starting element;
+    }
+
+    front(){
+        if (this.isEmpty()) {
+            return null;
+        }
+        return this.#items[0];
+    }
+
+    isEmpty(){
+        return (this.#items.length === 0) 
     }
 }
+
+const queue1 = new Queue();
+
+// adding element
+queue1.enqueue(10);
+queue1.enqueue(20);
+queue1.enqueue(30);
+queue1.enqueue(40);
+
+// removing elements
+console.log(queue1.dequeue());// 10
+console.log(queue1.dequeue());// 20
+console.log(queue1.dequeue());// 30
+// console.log(queue1.dequeue());// 40
+// console.log(queue1.dequeue());// null
+
+
+// view the first element
+console.log(queue1.front()); 
+
+
+
+// Task 6:
+const printerQueue = new Queue();
+
+// Adding print jobs to printer
+printerQueue.enqueue('Print Job 1');
+printerQueue.enqueue('Print Job 2');
+printerQueue.enqueue('Print Job 3');
+
+
+while (!printerQueue.isEmpty()) {
+    const job = printerQueue.dequeue();
+    console.log(`Processing : ${job}`);
+}
+
+console.log("No more print jobs in the QUEUE");
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
