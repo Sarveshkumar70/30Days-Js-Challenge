@@ -284,6 +284,91 @@ while (!printerQueue.isEmpty()) {
 }
 
 console.log("No more print jobs in the QUEUE");
+
+
+// ### **Activity 4: Binary Tree**
+
+// Task 7:
+class TreeNode {
+    constructor(value){
+        this.value = value;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+// let root = new TreeNode(10);
+// root.left = new TreeNode(45);
+// root.right = new TreeNode(4);
+
+//       10
+//      /  \
+//     45   4
+
+
+
+// Task 8:
+class BinaryTree{
+    constructor(){
+        this.root = null;
+    }
+
+    // inserting values
+    insert(value){
+
+        const newNode = new TreeNode(value);
+
+        if (this.root === null) {
+            this.root = newNode;
+            return;
+        }
+
+        this.insertNode(this.root, newNode);
+    }
+
+    insertNode(node,newNode){
+
+        if (node.value > newNode.value) {
+            if (node.left === null) {
+                node.left = newNode;
+            }
+            else{
+                this.insertNode(node.left,newNode)
+            }
+        }
+
+        else{
+            if (node.right === null ) {
+                node.right = newNode;
+            }
+            else{
+                this.insertNode(node.right,newNode)
+            }
+        }  
+    }
+
+
+    // Traversal
+    inOrderTraversal(node = this.root){
+        if (node !== null) {
+            this.inOrderTraversal(node.left);
+            console.log(node.value);
+            this.inOrderTraversal(node.right);
+        }
+    }
+}
+
+const binaryTreeVar = new BinaryTree();
+
+binaryTreeVar.insert(5)
+binaryTreeVar.insert(6)
+binaryTreeVar.insert(1)
+binaryTreeVar.insert(7)
+binaryTreeVar.insert(8)
+
+console.log("In-order Traversal:");
+
+binaryTreeVar.inOrderTraversal();
     
 
 
