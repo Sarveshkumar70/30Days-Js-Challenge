@@ -372,16 +372,91 @@ binaryTreeVar.inOrderTraversal();
     
 
 
+// ### **Activity 5: Graph (Optional)**
+
+// Task 9:
+class Graph{
+    constructor(){
+        this.adjacencyList = new Map()
+    }
+
+    // Methods
+
+    addVertex(vertex){
+        if (!this.adjacencyList.has(vertex)) {
+            this.adjacencyList.set(vertex,[])
+        }
+    }
 
 
+    addEdge(vertex1, vertex2){
+        this.addVertex(vertex1);  // This ensures that both vertices exist in the graph before we try to connect them
+        this.addVertex(vertex2); 
+
+        this.adjacencyList.get(vertex1).push(vertex2);
+        this.adjacencyList.get(vertex2).push(vertex1);
+    }
 
 
+    breadthFirstSearch(startVertex){
+        const visited = new Set(); //  A Set to keep track of vertices we've already visited
+        const queue = [startVertex]; // An array used as a queue to manage the order of vertex exploration. We start with the startVertex.
+        const result = []; // An array to store the order in which we visit the vertices.
+
+        visited.add(startVertex);
+
+        while (queue.length > 0) {
+            const currentVertex = queue.shift();
+            result.push(currentVertex);
+
+            for (const neighbor of this.adjacencyList.get(currentVertex)) {
+                if (!visited.has(neighbor)) {
+                    visited.add(neighbor);
+                    queue.push(neighbor);
+                }
+            }
+        }
+
+        return result;
+    }
 
 
+    shortestPath(start, end) {
+        const visited = new Set();
+        const queue = [[start]];
+        visited.add(start);
+
+        while (queue.length > 0) {
+            const path = queue.shift();
+            const vertex = path[path.length-1];
+
+            if (vertex === end) {
+                return path;
+            }
+
+            for (const neighbor of this.adjacencyList.get(vertex)) {
+                if (!visited.has(neighbor)) {
+                    visited.add(neighbor);
+                    queue.push([...path, neighbor]);   
+                }   
+            }
+        }
+
+        return null;
+    }
+}
 
 
+const graph = new Graph();
 
+graph.addEdge('A','B');
+graph.addEdge('A','C');
+graph.addEdge('B','D');
+graph.addEdge('C','E');
+graph.addEdge('D','E');
+graph.addEdge('D','F');
+graph.addEdge('E','F');
 
-
-
+console.log(graph.breadthFirstSearch('A'));
+console.log(graph.shortestPath("A","F"));
 
