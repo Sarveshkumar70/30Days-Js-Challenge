@@ -374,7 +374,7 @@ binaryTreeVar.inOrderTraversal();
 
 // ### **Activity 5: Graph (Optional)**
 
-// Task 9:
+// Task 9 & 10:
 class Graph{
     constructor(){
         this.adjacencyList = new Map()
