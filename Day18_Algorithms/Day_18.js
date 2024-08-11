@@ -155,11 +155,25 @@ console.log(`The element ${searchElement} is at index ${indexIs} in array`);
 
 // Task 8:
 
-function rotateArray(myArray8, k) {
+function rotateArray(arr, k) {
+    // Handle edge cases
+    if (!Array.isArray(arr) || arr.length === 0 || k === 0) {
+        return arr;
+    }
 
-    
+    // Ensure k is positive and within array bounds
+    k = ((k % arr.length) + arr.length) % arr.length;
+
+    // Use array slicing for rotation
+    return [...arr.slice(-k), ...arr.slice(0, -k)];
 }
 
-const myArray8 = [10,20,30,40,50,60];
+// Test cases
+console.log(rotateArray([1, 2, 3, 4, 5], 2));  // Expected: [4, 5, 1, 2, 3]
+console.log(rotateArray([1, 2, 3, 4, 5], 5));  // Expected: [1, 2, 3, 4, 5]
+console.log(rotateArray([1, 2, 3, 4, 5], 7));  // Expected: [4, 5, 1, 2, 3]
+console.log(rotateArray([1, 2, 3, 4, 5], -2)); // Expected: [3, 4, 5, 1, 2]
+console.log(rotateArray([], 3));               // Expected: []
+console.log(rotateArray([1], 1));              // Expected: [1]
 
 
