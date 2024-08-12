@@ -6,25 +6,24 @@
 // ### **Activity 2: Searching Algorithms**
 
 // Task 4:
-function linearSearch(arr,target,n) {
-    for (let index = 0; index < n; index++) {
-        if (arr[index] === target) {
-            return index;
-        }
-    }
+// function linearSearch(arr,target,n) {
+//     for (let index = 0; index < n; index++) {
+//         if (arr[index] === target) {
+//             return index;
+//         }
+//     }
 
-    return -1;
-}
+//     return -1;
+// }
 
-let myArray4 = [10,16,44,2,1121,21,0,1]
+// let myArray4 = [10,16,44,2,1121,21,0,1]
 
-let searchElement = 11;
-const indexIs = linearSearch(myArray4, searchElement, myArray4.length);
-console.log(`The element ${searchElement} is at index ${indexIs} in array`);
+// let searchElement = 11;
+// const indexIs = linearSearch(myArray4, searchElement, myArray4.length);
+// console.log(`The element ${searchElement} is at index ${indexIs} in array`);
 
 
 // // Task : 5
-
 // function binarySearch(arr, target, n) {
 //     let start = 0;
 //     let end = n-1;
@@ -155,25 +154,88 @@ console.log(`The element ${searchElement} is at index ${indexIs} in array`);
 
 // Task 8:
 
-function rotateArray(arr, k) {
-    // Handle edge cases
-    if (!Array.isArray(arr) || arr.length === 0 || k === 0) {
-        return arr;
-    }
+// // Task 8:
+// function rotateArray(array, k) {
+//     // if (position === 0) {
+//     //     console.log("Nothing changes in array");
+//     //     return array;
+//     // }
 
-    // Ensure k is positive and within array bounds
-    k = ((k % arr.length) + arr.length) % arr.length;
+//     let n = array.length;
 
-    // Use array slicing for rotation
-    return [...arr.slice(-k), ...arr.slice(0, -k)];
-}
+//     k = k % n
 
-// Test cases
-console.log(rotateArray([1, 2, 3, 4, 5], 2));  // Expected: [4, 5, 1, 2, 3]
-console.log(rotateArray([1, 2, 3, 4, 5], 5));  // Expected: [1, 2, 3, 4, 5]
-console.log(rotateArray([1, 2, 3, 4, 5], 7));  // Expected: [4, 5, 1, 2, 3]
-console.log(rotateArray([1, 2, 3, 4, 5], -2)); // Expected: [3, 4, 5, 1, 2]
-console.log(rotateArray([], 3));               // Expected: []
-console.log(rotateArray([1], 1));              // Expected: [1]
+//     // for reversing whole array
+//     reverseArray(array, 0, n-1);
+    
+//     // for reversing first k-1 elements
+//     reverseArray(array, 0, k-1);
+    
+//     // for reversing elements after k
+//     reverseArray(array, k, n-1);
+
+//     console.log(array);
+// }
+
+// function reverseArray(arr, start, end) {
+//     while (start < end) {
+        
+//         let temp = arr[start];
+//         arr[start] = arr[end];
+        
+//         arr[end] = temp;
+        
+//         start++;
+//         end--;
+//     }
+// }
+
+// const array8 = [10,20,30,40,50,60,70];
+// rotateArray(array8,2)
+
+
+
+// Task 9:
+// function mergeArray(arrA, arrB) {
+//     // initializing array to store two merged arrays into new one
+//     let arrResult = [];
+
+//     // length of both arrays
+//     let m = arrA.length;
+//     let n = arrB.length;
+
+//     let i = j = k = 0;
+
+
+//     // This loop runs until one of the arrays (arrA or arrB) is fully traversed.
+//     while (i < m && j < n) {
+//         if (arrA[i] <= arrB[j]) {
+//             arrResult[k++] = arrA[i++];
+//         }
+//         else if (arrA[i] > arrB[j]) {
+//             arrResult[k++] = arrB[j++]
+//         }
+//     }
+
+//     // for remaining elements left in any array
+//     while (i < m) {
+//         arrResult[k++] = arrA[i++]
+//     }
+
+//     while (j < n) {
+//         arrResult[k++] = arrB[j++]
+//     }
+//     console.log(arrResult);
+   
+// }
+
+// let arrA = [20,40,50,90,100]
+// let arrB = [10,30,40,60,70,120,125,300]
+
+// mergeArray(arrA,arrB) // [
+//                       //     10,  20,  30, 40,  40,
+//                       //     50,  60,  70, 90, 100,
+//                       //    120, 125, 300
+//                       //  ]
 
 
